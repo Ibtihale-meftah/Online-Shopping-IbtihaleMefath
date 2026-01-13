@@ -3,8 +3,8 @@
 ### Application e-commerce JavaFX  
 Gestion des utilisateurs et des produits
 
-
 ![Uploading mef.jpg…]()
+
 
 
 Réalisé par : Meftah Ibtihale  
@@ -14,18 +14,28 @@ Année universitaire : 2025–2026
 
 ---
 
-## Remerciements
+Ce projet consiste à développer une application de commerce en ligne réalisée en Java avec JavaFX.
+Il conçoit une solution qui permet de gérer les utilisateurs et les produits de manière centralisée et sécurisée.
 
-Je remercie mon encadrant pour son accompagnement, ses conseils et son suivi.  
-Je remercie l’établissement pour le cadre pédagogique.  
-Je remercie toute personne ayant contribué à la réussite de ce projet.
+L’application repose sur une architecture MVC.
+Cette structure sépare clairement l’interface graphique, la logique métier et l’accès aux données.
+Elle facilite la maintenance et l’évolution du projet.
 
----
+Le système intègre une authentification avec gestion des rôles.
+L’administrateur dispose d’un tableau de bord pour gérer les utilisateurs et les produits.
+Il peut ajouter, modifier et supprimer des comptes et des articles.
+Le client peut consulter le catalogue et interagir avec les produits.
 
-## Résumé
+La gestion des données utilise une approche hybride.
+Hibernate gère les utilisateurs via un mapping objet-relationnel.
+JDBC et SQL natif gèrent les produits afin d’assurer un contrôle précis du stock et des performances.
+La base de données MySQL est déployée avec Docker pour garantir un environnement stable.
 
-Ce projet consiste à développer une application de vente en ligne permettant la gestion des produits et des utilisateurs.  
-L’application est réalisée en Java avec JavaFX pour l’interface, Hibernate pour la persistance des utilisateurs et MySQL comme base de données, déployée avec Docker.
+L’interface JavaFX offre une navigation fluide et ergonomique.
+Le multi-threading évite le blocage de l’interface lors des opérations lourdes.
+
+Ce projet te permet d’appliquer concrètement la programmation orientée objet, la persistance des données et les bonnes pratiques d’architecture logicielle dans un contexte e-commerce réel.
+
 
 ---
 
