@@ -266,6 +266,22 @@ Toutes les opérations sont synchronisées avec la base MySQL.
 
 ## Conclusion
 
-Ce projet applique concrètement les concepts avancés de Java.  
-L’architecture MVC facilite la maintenance et l’évolution.  
-L’application constitue une base solide pour une solution e-commerce plus complète.
+Ce projet met en pratique de manière concrète les concepts avancés du langage Java
+étudiés au cours de la formation. Il intègre la programmation orientée objet, la gestion des
+exceptions, l’utilisation des collections, des streams, ainsi que le multi-threading, afin de
+répondre à des problématiques réelles rencontrées dans le développement d’applications
+professionnelles. Cette mise en application permet de consolider les acquis théoriques à
+travers un projet structuré et fonctionnel.
+
+L’application repose sur une architecture claire et bien organisée, basée sur le modèle
+MVC, garantissant une séparation nette entre la logique métier, l’interface graphique et
+le contrôle des actions utilisateur. Cette organisation facilite la maintenance, la compré
+hension du code et l’ajout de nouvelles fonctionnalités. L’interface graphique, développée
+avec JavaFX, offre une navigation fluide et intuitive, permettant aux utilisateurs et à
+l’administrateur d’interagir efficacement avec le système.
+
+Enfin, ce projet a été conçu dans une optique d’évolutivité. Sa structure modulaire
+permet d’envisager facilement des extensions futures, telles que l’ajout d’un système de
+paiement réel, la gestion des commandes avancées, la mise en place de statistiques ou
+encore une version web ou mobile. Il constitue ainsi une base solide pour le développement
+d’une application e-commerce plus complète et plus robuste.
