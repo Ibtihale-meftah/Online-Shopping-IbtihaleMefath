@@ -1,4 +1,13 @@
 # Compte Rendu du Projet : Online Shopping
+Nom & Prénom : Meftah Ibtihale
+
+4IIR G2 
+
+EMSI MY
+
+![mef](https://github.com/user-attachments/assets/0ec3681b-014d-4811-8703-6e75fd8e50a4)
+
+
 
 ## 1. Description du Projet
 
@@ -73,5 +82,3 @@ Ce pattern isole l'accès aux données. Même si l'implémentation interne chang
 Docker conteneurise la base de données MySQL 8.0, assurant que l'environnement de développement est identique pour tous.
 *   Configuré via `docker-compose.yml` sur le port `3306`.
 
----
-*Ce rapport reflète l'état actuel du code, intégrant la gestion hybride Hibernate/Native SQL et les fonctionnalités multi-thread.*
