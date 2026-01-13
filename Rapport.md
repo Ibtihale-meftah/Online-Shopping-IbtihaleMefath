@@ -3,9 +3,8 @@
 ### Application e-commerce JavaFX  
 Gestion des utilisateurs et des produits
 
-![Uploading mef.jpg…]()
 
-
+![mef](https://github.com/user-attachments/assets/536f95be-1798-4e14-9ca1-60e6d9d8b3df)
 
 Réalisé par : Meftah Ibtihale  
 Filière : 4IIR G2  
@@ -46,12 +45,51 @@ Ce projet répond au besoin de gestion centralisée des produits et des utilisat
 
 ### Objectif
 
-Le projet vise à renforcer les compétences en programmation orientée objet.  
-Il applique l’encapsulation, l’héritage, le polymorphisme et l’abstraction.  
-Il met en œuvre Hibernate pour la persistance des données et le modèle MVC pour une architecture claire.  
-L’interface JavaFX assure une interaction simple et ergonomique.
+L’objectif principal du projet est de consolider les compétences en programmation
+orientée objet à travers une architecture claire et maintenable. 
+Le projet permet de mettre en œuvre les principes fondamentaux tels que l’encapsulation, l’héritage, le polymorphisme et l’abstraction, tout en respectant les bonnes pratiques de conception logicielle.
+
+L’application vise également à maîtriser la gestion des données persistantes en utilisant
+Hibernate comme couche d’accès aux données.
+Cela inclut la configuration du framework ORM, le mapping objet-relationnel, la gestion des transactions et la communication avec une base de données MySQL déployée dans un environnement Docker.
+Un autre objectif essentiel est la compréhension et l’application d’une architecture
+logicielle structurée, notamment le modèle MVC.
+Cette approche permet de séparer clairement l’interface utilisateur, la logique métier et l’accès aux données, améliorant ainsi la lisibilité du code, sa maintenabilité et son évolutivité.
+
+Le projet a aussi pour but de développer une interface graphique ergonomique avec
+JavaFX, facilitant l’interaction entre l’utilisateur et le système. L’accent est mis sur la
+gestion des événements, la validation des données et l’affichage dynamique des informa
+tions issues de la base de données.
+
+Enfin, cette application constitue une première approche des problématiques rencon
+trées dans les systèmes e-commerce réels, telles que la gestion des utilisateurs, des produits,
+de l’authentification et des erreurs. Elle prépare ainsi à des projets plus complexes inté
+grant la sécurité avancée, les performances et l’évolutivite du système.
+
 
 ### Fonctionnalités
+
+L’application intègre un système d’authentification des utilisateurs permettant un ac
+cès sécurisé à la plateforme. Chaque utilisateur doit s’inscrire puis se connecter à l’aide
+de ses identifiants personnels. Ce mécanisme garantit que seules les personnes autorisées
+peuvent accéder aux fonctionnalités de l’application et interagir avec les données stockées
+dans la base. La validation des informations saisies et la gestion des erreurs d’authentifi
+cation assurent une expérience utilisateur fiable et cohérente.
+
+La gestion des rôles constitue une fonctionnalité centrale du système. L’application
+distingue clairement les profils administrateur et client, chacun disposant de droits et d’in
+terfaces spécifiques. L’administrateur peut accéder aux fonctionnalités de gestion avancée,
+telles que l’ajout, la modification et la suppression des produits ainsi que la supervision
+des utilisateurs. Le client, quant à lui, dispose d’un accès limité aux fonctionnalités de
+consultation des produits et d’interaction avec le catalogue. Cette séparation des rôles
+renforce la sécurité et respecte les principes de contrôle d’accès.
+
+La gestion des produits permet de créer, consulter, mettre à jour et supprimer les
+articles disponibles sur la plateforme. Chaque produit est défini par des informations
+essentielles telles que le nom, le prix, la quantité en stock, la description et l’image associée.
+Le système assure le suivi du stock afin de refléter en temps réel la disponibilité des
+produits. Cette fonctionnalité garantit une gestion cohérente des données et constitue le
+cœur du fonctionnement de l’application e-commerce.
 
 - Authentification sécurisée des utilisateurs  
 - Gestion des rôles administrateur et client  
@@ -75,19 +113,37 @@ L’interface JavaFX assure une interaction simple et ergonomique.
 
 ### Architecture MVC
 
-- Modèle : logique métier et accès aux données  
-- Vue : interface graphique JavaFX  
-- Contrôleur : gestion des actions utilisateur  
+— L’application est développée en Java, qui constitue le socle de la logique métier.
+Ce langage permet de structurer le projet selon les principes de la programmation
+orientée objet, d’assurer une bonne maintenabilité du code et de mettre en œuvre
+des concepts avancés tels que les DAO, la gestion des exceptions et la séparation
+des responsabilités entre les différentes couches de l’application.
 
-### Gestion hybride des données
+— L’interface graphique est réalisée avec JavaFX. Cette technologie permet de conce
+voir des interfaces modernes, interactives et ergonomiques. Grâce aux fichiers FXML
+et aux contrôleurs associés, l’interface est clairement séparée de la logique métier,
+ce qui facilite l’évolution du design et l’amélioration de l’expérience utilisateur.
 
-Hibernate est utilisé pour les utilisateurs.  
-JDBC avec SQL natif est utilisé pour les produits afin de mieux gérer le stock et les performances.
+— Labasededonnées repose sur MySQL, un système de gestion de bases de données
+relationnelles fiable et largement utilisé. MySQL assure le stockage persistant des
+données telles que les utilisateurs, les produits et les informations liées au stock. Il
+permet également l’exécution de requêtes efficaces pour la consultation et la mise
+à jour des données.
 
-### Multi-threading
+— Hibernate est utilisé pour la gestion des utilisateurs. Cet ORM simplifie l’interac
+tion avec la base de données en automatisant la persistance des objets Java vers les
+tables relationnelles. Il réduit l’écriture de code SQL répétitif, améliore la lisibilité
+du code et facilite la gestion des entités, des relations et des transactions.
 
-Les opérations lourdes sont exécutées dans des threads séparés.  
-Cela garantit une interface fluide et réactive.
+— Pour la gestion des produits, l’application utilise JDBC et du SQL natif. Ce
+choix permet un contrôle précis des requêtes, notamment pour les opérations de
+gestion du stock et des produits. L’utilisation directe de JDBC offre de bonnes
+performances et une maîtrise complète des accès aux données.
+
+— $Docker est utilisé pour la base de données MySQL afin de garantir un environne
+ment de développement stable et reproductible. La base de données est exécutée
+dans un conteneur, ce qui facilite le déploiement, évite les problèmes de configura
+tion locale et assure la portabilité du projet sur différentes machines.
 
 ---
 
@@ -98,6 +154,9 @@ Cela garantit une interface fluide et réactive.
 Le diagramme représente les entités principales comme User, Product, Order et CartItem.  
 Les DAO gèrent la persistance.  
 Les contrôleurs JavaFX assurent l’interaction avec l’interface.
+
+<img width="3068" height="7808" alt="Onligne_Shopping" src="https://github.com/user-attachments/assets/320d9be3-ec1c-46fc-ae38-c5278e519110" />
+
 
 ---
 
