@@ -106,13 +106,6 @@ cœur du fonctionnement de l’application e-commerce.
 - Hibernate  
 - JDBC et SQL natif  
 - Docker  
-
----
-
-## Architecture et choix techniques
-
-### Architecture MVC
-
 — L’application est développée en Java, qui constitue le socle de la logique métier.
 Ce langage permet de structurer le projet selon les principes de la programmation
 orientée objet, d’assurer une bonne maintenabilité du code et de mettre en œuvre
@@ -145,8 +138,87 @@ ment de développement stable et reproductible. La base de données est exécut�
 dans un conteneur, ce qui facilite le déploiement, évite les problèmes de configura
 tion locale et assure la portabilité du projet sur différentes machines.
 
+
+
 ---
 
+## Architecture et choix techniques
+
+### Architecture MVC
+
+L’architecture de l’application repose sur le modèle MVC (Model–View–Controller),
+afin d’assurer une séparation claire des responsabilités et une meilleure maintenabilité
+du code. Ce choix architectural permet de structurer l’application de manière logique et
+évolutive, tout en facilitant la compréhension du projet.
+
+Le Modèle représente la couche responsable de la gestion des données et de la logique
+métier. Il regroupe les entités telles que les utilisateurs, les produits, les commandes et
+les éléments de stock. Cette couche communique directement avec la base de données via
+Hibernate ou JDBC selon le type de données manipulées. Les collections Java, comme
+List et Map, sont utilisées pour stocker temporairement les données récupérées depuis la
+base, permettant un traitement efficace en mémoire.
+
+La Vuecorrespond à l’interface graphique développée avec JavaFX. Elle est chargée de
+l’affichage des informations et de l’interaction avec l’utilisateur. Les vues ne contiennent
+aucune logique métier, ce qui garantit une interface claire, réactive et indépendante des
+traitements internes. Les données affichées proviennent du contrôleur sous forme de col
+lections prêtes à être parcourues et affichées dans des composants graphiques comme les
+tableaux et les listes.
+
+Le Contrôleur joue un rôle central dans l’application. Il reçoit les actions de l’uti
+lisateur, déclenche les traitements nécessaires dans le modèle et met à jour la vue en
+conséquence. Les contrôleurs utilisent fréquemment les Streams Java pour filtrer, trier
+ou transformer les collections de données, par exemple pour afficher uniquement les pro
+duits disponibles en stock ou rechercher un produit spécifique par son nom. Cette approche
+rend le code plus lisible, plus concis et plus performant.
+
+## Gestion Hybride des Données
+
+L’application adopte une gestion hybride des données afin de tirer parti des avantages
+de différentes technologies d’accès à la base de données. Ce choix a été fait pour répondre
+aux besoins spécifiques de chaque type de données manipulées.
+
+Hibernate est utilisé pour la gestion des utilisateurs. Il simplifie les opérations CRUD
+grâce à la persistance objet-relationnelle et réduit considérablement la quantité de code
+SQL àécrire. Les entités utilisateurs sont automatiquement mappées aux tables de la base
+MySQL, ce qui facilite la gestion des rôles, de l’authentification et des sessions. Les col
+lections Hibernate permettent de charger et manipuler les données de manière structurée
+avant leur exploitation dans l’application.
+
+Le SQL natif, via JDBC, est utilisé pour la gestion des produits. Ce choix offre un
+contrôle total sur les requêtes, notamment pour les opérations liées au stock et aux prix.
+Il permet d’optimiser les performances et d’exécuter des requêtes précises adaptées aux
+besoins métier. Les résultats des requêtes SQL sont ensuite convertis en objets Java et
+stockés dans des collections, qui peuvent être traitées à l’aide des Streams pour effectuer
+des calculs, des filtrages ou des regroupements.
+
+Cette approche hybride améliore à la fois la flexibilité, la performance et la maîtrise
+des accès aux données, tout en conservant une architecture cohérente et professionnelle.
+
+## Multi-threading
+
+Le multi-threading est intégré dans l’application afin d’améliorer l’expérience utilisa
+teur et d’assurer une interface fluide. Dans une application graphique, certaines opérations
+peuvent être longues, comme l’accès à la base de données ou la simulation d’un paiement.
+Sans gestion des threads, ces opérations risqueraient de bloquer l’interface.
+
+Pour éviter ce problème, les traitements lourds sont exécutés dans des threads séparés
+du thread principal de JavaFX. Cela permet à l’interface de rester réactive, même lorsque
+des opérations complexes sont en cours. Les résultats de ces traitements sont ensuite
+transmis à la vue de manière sécurisée.
+
+Le multi-threading est également utilisé pour simuler des scénarios réalistes, comme
+le traitement d’un paiement ou la validation d’une commande.
+Les données manipuléespar les threads sont souvent stockées dans des collections
+thread-safe ou traitées de manière contrôlée afin d’éviter les conflits. 
+Les Streams peuvent être utilisés pour analyser les résultats de ces traitements, 
+par exemple pour mettre à jour l’état des commandes ou
+recalculer le stock disponible.
+Cette approche renforce la robustesse de l’application et démontre l’utilisation de
+concepts Java avancés dans un contexte réel et professionnel.
+
+
+---
 ## Modélisation
 
 ### Diagramme de classes
